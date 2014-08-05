@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.zoe.register"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF" >
@@ -121,5 +122,23 @@
         android:text="登录"
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
+
+    <com.zoe.register.SmoothProgressBar
+        android:id="@+id/sm_progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/register"
+        android:layout_alignRight="@id/register"
+        android:layout_below="@id/register"
+        android:layout_marginTop="-9dp"
+        android:indeterminate="true"
+        android:paddingLeft="1dip"
+        android:paddingRight="1dip"
+        android:visibility="gone"
+        app:spb_colors="@array/gplus_colors"
+        app:spb_interpolator="spb_interpolator_linear"
+        app:spb_sections_count="4"
+        app:spb_speed="0.7"
+        app:spb_stroke_separator_length="12dp" />
 
 </RelativeLayout>

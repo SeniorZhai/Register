@@ -18,6 +18,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	TextView registerTitle;
 	TextView resetPassword;
 
+	SmoothProgressBar progressBar;
 	DeletableEditText userNameInput;
 	DeletableEditText userPasswordInput;
 	DeletableEditText userEmailInput;
@@ -38,6 +39,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		registerTitle = (TextView) findViewById(R.id.register_menu);
 		resetPassword = (TextView) findViewById(R.id.reset_password_menu);
 
+		progressBar = (SmoothProgressBar) findViewById(R.id.sm_progressbar);
 		userNameInput = (DeletableEditText) findViewById(R.id.user_name_input);
 		userPasswordInput = (DeletableEditText) findViewById(R.id.user_password_input);
 		userEmailInput = (DeletableEditText) findViewById(R.id.user_email_input);
@@ -106,18 +108,21 @@ public class MainActivity extends Activity implements OnClickListener {
 					return;
 				}
 				// 注册逻辑代码
-			}else{
-				if(TextUtils.isEmpty(userEmailInput.getText())){
+			} else {
+				if (TextUtils.isEmpty(userEmailInput.getText())) {
 					userEmailInput.setShakeAnimation();
-					Toast.makeText(mContext, "请输入邮箱地址", Toast.LENGTH_SHORT).show();
+					Toast.makeText(mContext, "请输入邮箱地址", Toast.LENGTH_SHORT)
+							.show();
 					return;
 				}
-				if(!isValidEmail(userEmailInput.getText())){
+				if (!isValidEmail(userEmailInput.getText())) {
 					userEmailInput.setShakeAnimation();
-					Toast.makeText(mContext, "邮箱格式不正确", Toast.LENGTH_SHORT).show();
+					Toast.makeText(mContext, "邮箱格式不正确", Toast.LENGTH_SHORT)
+							.show();
 					return;
 				}
 				// 逻辑代码
+				progressBar.setVisibility(View.VISIBLE);
 			}
 			break;
 		default:
